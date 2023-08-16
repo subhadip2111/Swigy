@@ -1,7 +1,7 @@
 import React from 'react'
 import { useRouteError } from 'react-router'
 const Error = () => {
-
+////
 
     const err=useRouteError()
   return (
