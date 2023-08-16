@@ -4,18 +4,21 @@ import ReactDOM from 'react-dom/client';
 import Header from './component/Header';
 import Footer from './component/Footer';
 import Body from './component/Body';
-import { createBrowserRouter,RouterProvider } from 'react-router-dom';
+import { createBrowserRouter,RouterProvider ,Outlet} from 'react-router-dom';
 import About from './component/About';
 import Error from './component/Error';
+import Contact from './component/Contact';
+import RestaurantMenu from './component/RestaurantMenu';
 
 
 
+//OutLate is an component 
 const AppLayout = () => {
 
     return (
      <>
-         <Header />
-    <Body/>
+         <Header/>
+          <Outlet/>
     <Footer/>
 
     </>
@@ -27,19 +30,36 @@ const AppLayout = () => {
 
 //this configaration is an array of object
 const appRouter = createBrowserRouter([
-    {
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+        children: [
+     {
         path: "/",
-        element: <AppLayout />,
-        errorElement:<Error />
-    },
-    {
+        element: <Body/>,
+        },
+     {
         path: "/about",
-        element:<About/>
-    },
-])
+        element: <About />,
+      },
+     
+       
+      {
+        path: "/contact",
+        element: <Contact/>,
+      },
+      {
+        path: "/restaurant/:resId",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 //instead of showing only appLayout we provided that dynamics
 // It will render according to the configure 
 root.render(<RouterProvider router={appRouter} />);
 //
+
