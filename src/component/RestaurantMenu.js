@@ -11,7 +11,7 @@ import Shimmer, { MenuShimmer } from "./Shimmer";
 
 const RestaurantMenu = () => {
   const { resId } = useParams(); // call useParams and get value of restaurant id using object destructuring
-  const [restaurant, setRestaurant] = useState(null); // call useState to store the api data in res
+  const [restaurant, setRestaurant] = useState(null); // call useState to store the api data in restraunt
   const [menuItems, setMenuItems] = useState([]);
   useEffect(() => {
     getRestaurantInfo(); // call getRestaurantInfo function so it fetch api data and set data in restaurant state variable
@@ -120,6 +120,13 @@ const RestaurantMenu = () => {
       </div>
     </div>
   );
+
+
+
+ 
 };
 
 export default RestaurantMenu;
+
+
+
