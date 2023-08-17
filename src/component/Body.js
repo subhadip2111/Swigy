@@ -2,16 +2,11 @@ import "../../index.css"
 import { useEffect, useState } from "react"; /* This is named export */
 import Shimmer from "./Shimmer"; /* This is default export */
 import { swiggy_api_URL } from "../../constants";
-import RestrauntCard from "./Restrauntcard";
+import RestrauntCard from "./RestrauntCard";
 import { Link } from "react-router-dom";
-// Filter Function for  the restaurant data according input type
-function filterData(searchText, restaurants) {
-  const resFilterData = restaurants.filter((restaurant) =>
-    restaurant?.info?.name.toLowerCase().includes(searchText.toLowerCase())
-  );
-  return resFilterData;
-}
+import { filterData } from "../utils/helper";
 
+ 
 
 const Body = () => {
   

@@ -9,6 +9,7 @@ import About from './component/About';
 import Error from './component/Error';
 import Contact from './component/Contact';
 import RestaurantMenu from './component/RestaurantMenu';
+import Profile from './component/Profile';
 
 
 
@@ -41,7 +42,12 @@ const appRouter = createBrowserRouter([
         },
      {
         path: "/about",
-        element: <About />,
+       element: <About />,
+       children: [{
+         path: "profile",
+          
+            element:<Profile/>                          //  if i give / then react take it local host1234/profile
+        }]
       },
      
        
