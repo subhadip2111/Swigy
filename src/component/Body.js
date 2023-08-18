@@ -1,4 +1,4 @@
-import "../../index.css"
+
 import { useEffect, useState } from "react"; /* This is named export */
 import Shimmer from "./Shimmer"; /* This is default export */
 import { swiggy_api_URL } from "../../constants";

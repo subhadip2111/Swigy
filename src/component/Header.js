@@ -13,7 +13,9 @@ const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
-    <div className="header">
+    <div class="flex">
+      
+      <h1 className='text-right'>nkklj</h1>
       <Title />
       <div className="nav-items">
         <ul>
