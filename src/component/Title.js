@@ -1,11 +1,12 @@
+import { Link } from "react-router-dom"
 import Logo from "../assets/img/foodvilla.png"
 
 const Title = () => {
     return (
 
         <>
-        <a href='/'/>
-        <img className='logo' src={Logo} />
+<Link to="/"> <img className='logo' src={Logo} /></Link>
+       
    </> )
 }
 export default Title

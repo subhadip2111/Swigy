@@ -5,6 +5,7 @@ import { swiggy_api_URL } from "../../constants";
 import RestrauntCard from "./RestrauntCard";
 import { Link } from "react-router-dom";
 import { filterData } from "../utils/helper";
+import useOnline from "../utils/useOnline";
 
  
 
@@ -22,6 +23,11 @@ const Body = () => {
     getRestaurants();
   }, []);
 
+
+  const online = useOnline()
+  if (!online) {
+    return <h1> Please check our internet </h1>
+  }
   // async function getRestaurant to fetch Swiggy API data
   async function getRestaurants() {
     // handle the error using try... catch
@@ -52,8 +58,7 @@ const Body = () => {
     } catch (error) {
       console.log(error);
     }
-  }
-
+  } 
   // use searchData function and set condition if data is empty show error message
   const searchData = (searchText, restaurants) => {
     if (searchText !== "") {
@@ -67,7 +72,7 @@ const Body = () => {
       setErrorMessage("");
       setFilteredRestaurants(restaurants);
     }
-  };
+  }; 
 // ERROR HANDLING
   // if allRestaurants is empty don't render restaurants cards  
   if (!allRestaurants) return null;

@@ -1,1 +1,4 @@
-# Food-order-App   
+# Food-order-App  
+
+# Suspence
+# lazyLoading
