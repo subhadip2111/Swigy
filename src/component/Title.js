@@ -5,7 +5,7 @@ const Title = () => {
     return (
 
         <>
-<Link to="/"> <img className='logo' src={Logo} /></Link>
+<Link to="/"> <img className='h-28 pl-2' src={Logo} /></Link>
        
    </> )
 }

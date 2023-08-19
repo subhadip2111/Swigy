@@ -79,17 +79,17 @@ const Body = () => {
 
   return (
     <>
-      <div className="search-container">
+      <div className="p-5 bg-pink-300 my-5">
         <input
           type="text"
-          className="search-input"
-          placeholder="Search a restaurant ..."
+          className="focus:bg-green-50 p-2 m-2 rounded-md "
+          placeholder="Search ..."
           value={searchText}
           // update the state variable searchText when we typing in input box
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
         <button
-          className="search-btn"
+          className="search-btn p-2 m-2 bg-slate-800 text-white rounded-xl  hover:bg-violet-600 active:bg-violet-700 focus:ring "
           onClick={() => {
             // user click on button searchData function is called
             searchData(searchText, allRestaurants);
@@ -104,7 +104,7 @@ const Body = () => {
       {allRestaurants?.length === 0 ? (
         <Shimmer />
       ) : (
-        <div className="restaurant-list">
+        <div className="flex flex-wrap">
           {/* We are mapping restaurants array and passing JSON array data to RestaurantCard component as props with unique key as restaurant.data.id */}
           {filteredRestaurants.map((restaurant) => {
             return (
