@@ -20,6 +20,41 @@ export const shimmer_card_unit = 20;
 // shimmer Menu card unit
 export const shimmer_menu_card_unit = 4;
 
+
+
+
+//Github_Link,
+  // Email_Link,
+  // Linkedin_Link,
+  // Twitter_Link,
+
+  export const Github_Link ="https://github.com/subhadip2111"
+
+export const Email_Link="subhadipshee20010521@gmail.com"
+export const  Linkedin_Link="linkedin.com/in/subhadip-shee-77a469235"
+
+  export const Twitter_Link="https://twitter.com/Shee7Subhadip"
+
+
+
 // menu items api card type key
 export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory";
 export const RESTAURANT_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";
+
+
+
+
+    export const  Github_API_User="https://api.github.com/users/"
+  
+export const Github_UserName = "subhadip2111";
+export const Github_Repository_Name = "Swigy";
+
+// Github API for User
+
+     
+export const options = {
+  method: "GET",
+  headers: {
+    Authorization: "",
+  },
+};

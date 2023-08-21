@@ -11,6 +11,10 @@ import Contact from './component/Contact';
 import RestaurantMenu from './component/RestaurantMenu';
 import Profile from './component/Profile';
 import Shimmer from './component/Shimmer';
+import Login from './component/Login';
+import { Provider } from 'react-redux';
+import store from './utils/store';
+import Cart from './component/Cart';
 
 // import InstaMart from './component/instaMart';
 // On Demand loading---->upon render -->suspend loading
@@ -24,11 +28,15 @@ const About=lazy(()=>import("./component/About"))
 const AppLayout = () => {
 
     return (
-     <>
+      <>
+
+        
+        {/* here the propes name is mendetaory */}
+        <Provider store={store}>
          <Header/>
           <Outlet/>
     <Footer/>
-
+</Provider>
     </>
 )
    
@@ -49,12 +57,8 @@ const appRouter = createBrowserRouter([
         },
      {
         path: "/about",
-       element: <Suspense fallback={<h1>Loading ...</h1>}><About /></Suspense>,
-       children: [{
-         path: "profile",
-          
-            element:<Profile/>                          //  if i give / then react take it local host1234/profile
-        }]
+      element:<About/>,
+  
       },
      
        
@@ -73,6 +77,16 @@ const appRouter = createBrowserRouter([
           
            <InstaMart />
          </Suspense>,
+          },
+         {
+    path: "login",
+    element: <Login/>,
+          },
+           { path: "cart",
+    element: <Cart/>,
+          },
+             { path: "profile",
+    element: <Profile/>,
           },
     ],
   },

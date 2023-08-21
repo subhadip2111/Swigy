@@ -1,71 +1,142 @@
 
 
+
+// import { useState } from "react";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
+// const Section = ({ title, description, isVisible, setIsVisible }) => {
+//   return (
+//     <div className="border border-black p-2 m-2">
+//       <h3 className="font-bold text-xl">{title}</h3>
+//       {isVisible ? (
+//         <button
+//           onClick={() => setIsVisible(false)}
+//           className="cursor-pointer underline"
+//         >
+//           Hide
+//         </button>
+//       ) : (
+//         <button
+//           onClick={() => setIsVisible(true)}
+//           className="cursor-pointer underline"
+//         >
+//           Show
+//         </button>
+//       )}
+
+//       {isVisible && <p>{description}</p>}
+//     </div>
+//   );
+// };
+
+// const Instamart = () => {
+//   const [visibleSection, setIsVisibleSection] = useState("team");
+//    return (
+//     <div className="m-auto w-4/5 my-5 py-2">
+//       <h1 className="text-3xl font-bold">Instamart</h1>{" "}
+//       <hr className="my-2 border-gray-500" />
+//       <Section
+//         title={"About Instamart"}
+//         description={
+//           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+//         }
+//         isVisible={visibleSection === "about"}
+//         setIsvisible={() =>
+//           setIsVisibleSection(visibleSection === "about" ? "" : "about")
+//         }
+//       />
+//       <Section
+//         title={"Team Instamart"}
+//         description={
+//           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+//         }
+//         isVisible={visibleSection === "team"}
+//         setIsvisible={() =>
+//           setIsVisibleSection(visibleSection === "team" ? "" : "team")
+//         }
+//       />
+//       <Section
+//         title={"Careers at Instamart"}
+//         description={
+//           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+//         }
+//         isVisible={visibleSection === "career"}
+//         setIsvisible={() =>
+//           setIsVisibleSection(visibleSection === "career" ? "" : "career")
+//         }
+//       />
+//     </div>
+//   );
+// };
+
+// export default Instamart;
+
+
 import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const Section = ({ title, description, isVisible, setIsVisible }) => {
+const Section = ({ title, description, isVisible, setIsvisible }) => {
+  //   const [isVisible, setIsvisible] = useState(false);
   return (
-    <div className="border border-black p-2 m-2">
-      <h3 className="font-bold text-xl">{title}</h3>
-      {isVisible ? (
-        <button
-          onClick={() => setIsVisible(false)}
-          className="cursor-pointer underline"
-        >
-          Hide
-        </button>
-      ) : (
-        <button
-          onClick={() => setIsVisible(true)}
-          className="cursor-pointer underline"
-        >
-          Show
-        </button>
-      )}
+    <div className="border-2  my-2 border-gray-900 rounded-sm  duration-200">
+      <button
+        onClick={() => setIsvisible(!isVisible)}
+        className="w-full text-left text-2xl p-2 "
+      >
+        {title}{" "}
+        <span className="text-lg">
+          {isVisible ? (
+            <FontAwesomeIcon icon={faArrowUp} />
+          ) : (
+            <FontAwesomeIcon icon={faArrowDown} />
+          )}
+        </span>
+      </button>
 
-      {isVisible && <p>{description}</p>}
+      {isVisible && <p className="p-2 ">{description}</p>}
     </div>
   );
 };
 
-const Instamart = () => {
-  const [visibleSection, setIsVisibleSection] = useState("team");
+const InstaMart = () => {
+  const [visibleSection, setIsVisibleSection] = useState("about");
   return (
-    <div>
-      <h1 className="text-3xl p-2 m-2 font-bold"> Instamart</h1>
+    <div className="m-auto w-4/5 my-5 py-2">
+      <h1 className="text-3xl font-bold">Instamart</h1>{" "}
+      <hr className="my-2 border-gray-500" />
       <Section
         title={"About Instamart"}
         description={
-          "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
         isVisible={visibleSection === "about"}
-        setIsVisible={() => setIsVisibleSection("about")}
+        setIsvisible={() =>
+          setIsVisibleSection(visibleSection === "about" ? "" : "about")
+        }
       />
-
       <Section
         title={"Team Instamart"}
         description={
-          "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
         isVisible={visibleSection === "team"}
-        setIsVisible={() => setIsVisibleSection("team")}
+        setIsvisible={() =>
+          setIsVisibleSection(visibleSection === "team" ? "" : "team")
+        }
       />
-
       <Section
-        title={"Careers "}
+        title={"Careers at Instamart"}
         description={
-          "On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the charms of pleasure of the moment, so blinded by desire, that they cannot foresee the pain and trouble that are bound to ensue; and equal blame belongs to those who fail in their duty through weakness of will, which is the same as saying through shrinking from toil and pain. These cases are perfectly simple and easy to distinguish. In a free hour, when our power of choice is untrammelled and when nothing prevents our being able to do what we like best, every pleasure is to be welcomed and every pain avoided. But in certain circumstances and owing to the claims of duty or the obligations of business it will frequently occur that pleasures have to be repudiated and annoyances accepted. The wise man therefore always holds in these matters to this principle of selection: he rejects pleasures to secure other greater pleasures, or else he endures pains to avoid worse pains."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
         }
         isVisible={visibleSection === "career"}
-        setIsVisible={() => setIsVisibleSection("career")}
+        setIsvisible={() =>
+          setIsVisibleSection(visibleSection === "career" ? "" : "career")
+        }
       />
-
-      {/* <AboutInstaMart/>
-      <DetailsofInstaart/>
-      <TeamInstamart/>
-      <Product/>
-      <Careers/> */}
     </div>
   );
 };
 
-export default Instamart;
+export default InstaMart;
