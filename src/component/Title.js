@@ -4,12 +4,17 @@ import Logo from "../assets/img/foodvilla.png";
 
 const Title = () => {
   return (
-    <div className="top-0 left-0 p-4">
-      <Link to="/">
-        <img className="h-16" src={Logo} alt="FoodVilla Logo" />
-      </Link>
-    </div>
+  <a href="/">
+    <img
+      className="w-20 min-w-[5rem] rounded-full"
+      src={Logo}
+      alt="Food Fire"
+      title="Food Love"
+    />
+  </a>
   );
 };
 
 export default Title;
+//  padding: 10px 0 10px 15px;
+//   width: 100px;

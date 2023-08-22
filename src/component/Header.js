@@ -2,21 +2,15 @@
 import React, { useState ,useContext} from 'react'
 import Title from "../component/Title.js"
   import UserContext from "../utils/UserContext"
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import  {useSelector}  from 'react-redux';
-const loggedInUser = () => {
-  return false
-}
-
-
-
 
 
 
 //Spa -Singe page
 ///client side routing 
 const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  //const [isLoggedIn, setIsLoggedIn] = useState(false);
 
 
 
@@ -26,7 +20,12 @@ const Header = () => {
 
    const cartItem=useSelector((store)=>store.cart.items)
  console.log(cartItem)
- 
+   const token = localStorage.getItem("token");
+  // use useState for user logged in or logged out
+  const [isLoggedin, setIsLoggedin] = useState(
+    token?.length === 100 ? true : false
+  );
+  const navigate = useNavigate();
   return (
      <header className="sticky top-0 bg-white z-10 shadow-md">
     <div className="p-3 w-full m-0 md:m-auto md:w-4/5  flex justify-between items-center">
@@ -50,13 +49,29 @@ const Header = () => {
                           <li className='px-3 py-2 text-red-500'>
             <Link to="/instamart">Instamart</Link>
           </li>
-           <li className='px-3 py-2'>
-              <Link to="/cart">Cart - { cartItem.length}</Link>
+           <li className='px-3 py-2 ' >
+              <Link to="/cart" >Cart - { cartItem.length} </Link>
             </li>
-                  <li className='px-3 py-2'>
-            <Link to="/login">Login</Link>
-            </li>
-         
+        
+         <li>
+            {/* use conditional rendering for login and logout */}
+            {isLoggedin ? (
+              <button
+                className="px-3 py-2"
+                onClick={() => {
+                  localStorage.clear();
+                  setIsLoggedin(!isLoggedin);
+                }}
+              >
+                Logout
+              </button>
+            ) : (
+              <button className="px-3 py-2" onClick={() => navigate("/login")}>
+                Login
+              </button>
+            )}
+          </li>
+
         </ul>
       </div>
 
@@ -65,6 +80,8 @@ const Header = () => {
     </header>
   );
 };
+
+
 
 export default Header;
 

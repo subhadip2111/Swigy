@@ -68,8 +68,8 @@ const RestrauntCard = ({
 }) => {
   // const { user } = useContext(UserContext);
   return (
-    <div className=" p-4 w-72 rounded-lg shadow-2xl m-3 cursor-pointer flex" >
-      <div className="w-full h-full">
+    <div className=" p-4 w-72 rounded-lg shadow-2xl m-2 " >
+      <div className="">
         <img src={IMG_CDN_URL + cloudinaryImageId} />
         <div className="pt-3 text-lg font-bold">{name}</div>
         <p className="text-lg text-gray-900 py-3">{cuisines.join(", ")}</p>

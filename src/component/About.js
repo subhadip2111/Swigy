@@ -38,8 +38,8 @@ const About = () => {
             <span className="text-green-500">Tasty & Fresh Food</span>
           </h1>
           <h4 className="text-gray-600">
-            "Better you will feel if you eat a Food<span className="text-red-500">Fire</span> healthy
-            meal"
+            "Eat For love more .... !!!  <span className="text-red-500"> @Fire</span> Healthy
+            Meal"
           </h4>
         </div>
         <div className="w-1/2">

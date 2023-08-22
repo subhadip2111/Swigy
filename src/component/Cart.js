@@ -1,11 +1,12 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { ITEM_IMG_CDN_URL } from '../../constants';
+import { clearCart, decrementItem, incrementItem } from '../utils/cartSlice';
 
 
-
-const Cart = () => {
+const Cart =() => {
   const cartItems = useSelector((store) => store.cart.items);
+  console.log(cartItems);
   const dispatch = useDispatch();
 
   return (
@@ -32,7 +33,7 @@ const Cart = () => {
             >
               <img
                 className="md:w-1/3 h-full"
-                src={ITEM_IMG_CDN_URL + item?.cloudinaryImageId}
+                src={ITEM_IMG_CDN_URL + item?.imageId}
               />
               <div className="md:w-1/3 text-md ">
                 <p className="font-bold">{item?.name}</p>
