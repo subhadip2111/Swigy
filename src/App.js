@@ -1,5 +1,5 @@
 
-import React, { lazy,Suspense} from 'react';
+import React, { lazy,Suspense, } from 'react';
 import ReactDOM from 'react-dom/client';
 import Header from './component/Header';
 import Footer from './component/Footer';
@@ -10,13 +10,14 @@ import Error from './component/Error';
 import Contact from './component/Contact';
 import RestaurantMenu from './component/RestaurantMenu';
 import Profile from './component/Profile';
-import Shimmer from './component/Shimmer';
+
 import Login from './component/Login';
 import { Provider } from 'react-redux';
 import store from './utils/store';
 import Cart from './component/Cart';
 
-import InstaMart from './component/instaMart';
+import InstaMart from './component/InstaMart';
+import UserContext from './utils/UserContext';
 // On Demand loading---->upon render -->suspend loading
 //Dynamic Importing
 //Lazy Import
@@ -32,11 +33,13 @@ const AppLayout = () => {
 
         
         {/* here the propes name is mendetaory */}
-        <Provider store={store}>
+       
+               <Provider store={store}>
          <Header/>
           <Outlet/>
     <Footer/>
 </Provider>
+
     </>
 )
    

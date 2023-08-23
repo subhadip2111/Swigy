@@ -1,15 +1,15 @@
 
 
-import React, { useState, useContext } from 'react';
+import React, { useState,  } from 'react';
 import Title from '../component/Title.js';
-import UserContext from '../utils/UserContext';
+
 import { Link, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Header = () => {
-  const { user } = useContext(UserContext);
+
 
   const cartItem = useSelector((store) => store.cart.items);
 
@@ -64,8 +64,8 @@ const Header = () => {
 
 
             <li>
-              {/* use conditional rendering for login and logout */}
-              {console.log('isLoggedin:', isLoggedin)}
+         
+              
               {isLoggedin ? (
                 <button
                   className="px-3 py-2"
