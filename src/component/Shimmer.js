@@ -1,9 +1,9 @@
-import { shimmer_card_unit } from "../../constants";
+
 
 
 const Shimmer = () => {
   return (
-    <div className="mt-5 m-auto w-4/5">
+    <div className="mt-5 m-auto w-4/5" data-testid="shimmer">
       <div className="flex flex-wrap gap-8 justify-evenly ">
         {Array(10)
           .fill("")

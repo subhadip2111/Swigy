@@ -1,138 +1,63 @@
-
-
-
-// import { useState } from "react";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
-// const Section = ({ title, description, isVisible, setIsVisible }) => {
-//   return (
-//     <div className="border border-black p-2 m-2">
-//       <h3 className="font-bold text-xl">{title}</h3>
-//       {isVisible ? (
-//         <button
-//           onClick={() => setIsVisible(false)}
-//           className="cursor-pointer underline"
-//         >
-//           Hide
-//         </button>
-//       ) : (
-//         <button
-//           onClick={() => setIsVisible(true)}
-//           className="cursor-pointer underline"
-//         >
-//           Show
-//         </button>
-//       )}
-
-//       {isVisible && <p>{description}</p>}
-//     </div>
-//   );
-// };
-
-// const Instamart = () => {
-//   const [visibleSection, setIsVisibleSection] = useState("team");
-//    return (
-//     <div className="m-auto w-4/5 my-5 py-2">
-//       <h1 className="text-3xl font-bold">Instamart</h1>{" "}
-//       <hr className="my-2 border-gray-500" />
-//       <Section
-//         title={"About Instamart"}
-//         description={
-//           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-//         }
-//         isVisible={visibleSection === "about"}
-//         setIsvisible={() =>
-//           setIsVisibleSection(visibleSection === "about" ? "" : "about")
-//         }
-//       />
-//       <Section
-//         title={"Team Instamart"}
-//         description={
-//           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-//         }
-//         isVisible={visibleSection === "team"}
-//         setIsvisible={() =>
-//           setIsVisibleSection(visibleSection === "team" ? "" : "team")
-//         }
-//       />
-//       <Section
-//         title={"Careers at Instamart"}
-//         description={
-//           "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
-//         }
-//         isVisible={visibleSection === "career"}
-//         setIsvisible={() =>
-//           setIsVisibleSection(visibleSection === "career" ? "" : "career")
-//         }
-//       />
-//     </div>
-//   );
-// };
-
-// export default Instamart;
-
-
-import { useState } from "react";
+import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const Section = ({ title, description, isVisible, setIsvisible }) => {
-  //   const [isVisible, setIsvisible] = useState(false);
+const Section = ({ title, description, isVisible, setIsVisible }) => {
   return (
-    <div className="border-2  my-2 border-gray-900 rounded-sm  duration-200">
+    <div className="border border-gray-300 p-4 my-4 rounded-lg">
       <button
-        onClick={() => setIsvisible(!isVisible)}
-        className="w-full text-left text-2xl p-2 "
+        onClick={() => setIsVisible(!isVisible)}
+        className="flex items-center justify-between w-full text-lg font-semibold focus:outline-none"
       >
         {title}{" "}
-        <span className="text-lg">
-          {isVisible ? (
-            <FontAwesomeIcon icon={faArrowUp} />
-          ) : (
-            <FontAwesomeIcon icon={faArrowDown} />
-          )}
+        <span className="text-base">
+          <FontAwesomeIcon icon={isVisible ? faArrowUp : faArrowDown} />
         </span>
       </button>
 
-      {isVisible && <p className="p-2 ">{description}</p>}
+      {isVisible && <p className="p-4 mt-2 bg-gray-100 rounded-lg">{description}</p>}
     </div>
   );
 };
 
 const InstaMart = () => {
-  const [visibleSection, setIsVisibleSection] = useState("about");
+  const [visibleSection, setVisibleSection] = useState("about");
+
   return (
     <div className="m-auto w-4/5 my-5 py-2">
-      <h1 className="text-3xl font-bold">Instamart</h1>{" "}
+      <h1 className="text-4xl font-bold mb-4">Instamart</h1>
       <hr className="my-2 border-gray-500" />
+
       <Section
         title={"About Instamart"}
         description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
         }
         isVisible={visibleSection === "about"}
-        setIsvisible={() =>
-          setIsVisibleSection(visibleSection === "about" ? "" : "about")
+        setIsVisible={() =>
+          setVisibleSection(visibleSection === "about" ? "" : "about")
         }
       />
+
       <Section
         title={"Team Instamart"}
         description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
         }
         isVisible={visibleSection === "team"}
-        setIsvisible={() =>
-          setIsVisibleSection(visibleSection === "team" ? "" : "team")
+        setIsVisible={() =>
+          setVisibleSection(visibleSection === "team" ? "" : "team")
         }
       />
+
       <Section
         title={"Careers at Instamart"}
         description={
-          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua..."
         }
         isVisible={visibleSection === "career"}
-        setIsvisible={() =>
-          setIsVisibleSection(visibleSection === "career" ? "" : "career")
+        setIsVisible={() =>
+          setVisibleSection(visibleSection === "career" ? "" : "career")
         }
       />
     </div>

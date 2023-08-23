@@ -16,7 +16,7 @@ dist/
 
 # Log files
 .Log
-
+/coverage
 # Package files
 *.jar
 

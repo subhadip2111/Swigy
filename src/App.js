@@ -5,7 +5,7 @@ import Header from './component/Header';
 import Footer from './component/Footer';
 import Body from './component/Body';
 import { createBrowserRouter,RouterProvider ,Outlet} from 'react-router-dom';
-// import About from './component/About';
+import About from './component/About';
 import Error from './component/Error';
 import Contact from './component/Contact';
 import RestaurantMenu from './component/RestaurantMenu';
@@ -16,15 +16,15 @@ import { Provider } from 'react-redux';
 import store from './utils/store';
 import Cart from './component/Cart';
 
-// import InstaMart from './component/instaMart';
+import InstaMart from './component/instaMart';
 // On Demand loading---->upon render -->suspend loading
 //Dynamic Importing
 //Lazy Import
 //Chunking 
 //OutLate is an component
 
-const About=lazy(()=>import("./component/About"))
-  const InstaMart=lazy(()=>import("./component/InstaMart"))
+// const About=lazy(()=>import("./component/About"))
+//   const InstaMart=lazy(()=>import("./component/InstaMart"))
 const AppLayout = () => {
 
     return (
@@ -73,10 +73,8 @@ const appRouter = createBrowserRouter([
       
        {
         path: "/instamart",
-         element: <Suspense fallback={<Shimmer/>}>
-          
-           <InstaMart />
-         </Suspense>,
+         element: <InstaMart />
+         
           },
          {
     path: "login",

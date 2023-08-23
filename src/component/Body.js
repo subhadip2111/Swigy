@@ -88,7 +88,7 @@ const Body = () => {
           // update the state variable searchText when we typing in input box
           onChange={(e) => setSearchText(e.target.value)}
         ></input>
-        <button
+        <button data-testid="search-btn"
           className="search-btn p-2 m-2 bg-slate-800 text-white rounded-xl  hover:bg-violet-600 active:bg-violet-700 focus:ring "
           onClick={() => {
             // user click on button searchData function is called
