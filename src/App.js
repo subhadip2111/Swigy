@@ -24,8 +24,6 @@ import UserContext from './utils/UserContext';
 //Chunking 
 //OutLate is an component
 
-// const About=lazy(()=>import("./component/About"))
-//   const InstaMart=lazy(()=>import("./component/InstaMart"))
 const AppLayout = () => {
 
     return (
